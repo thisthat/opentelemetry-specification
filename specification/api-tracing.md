@@ -337,6 +337,21 @@ Users of the API should only access the `IsRecording` property when
 instrumenting code and never access `SampledFlag` unless used in context
 propagators.
 
+#### SetSamplingHint
+
+A `Span` MUST have the ability to suggest a `SamplingHint` to the implementation. An implementation SHOULD use the `SamplingHint` to decide if:
+- `Event`s are recorded, and
+- `Span`s are propagated.
+
+The implementation SHOULD set the `SampledFlag` and `IsRecording` flags in accordance with the value of the `SamplingHint`:
+- `NOT_RECORD`
+    - `IsRecording` = false AND `SampledFlag` = false
+- `RECORD`
+    - `IsRecording` = true AND `SampledFlag` = false
+- `RECORD_AND_PROPAGATE`
+    - `IsRecording` = true AND `SampledFlag` = true
+
+
 #### Set Attributes
 
 A `Span` MUST have the ability to set attributes associated with it.
