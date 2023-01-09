@@ -1,5 +1,6 @@
 groups:
-  - id: deployment
+  - id: deployment-status
+    prefix: deployment
     type: event
     brief: >
       This document defines attributes for the resulting status of an operation used for deploying applications on Kubernetes.
@@ -27,6 +28,7 @@ groups:
           The status of the deployment.
 
   - id: deployment.application
+    prefix: deployment.application
     type: span
     brief: >
         This document defines attributes for Cloud Native Deployments of Applications.
@@ -49,6 +51,7 @@ groups:
           The status of the application deployment.
 
   - id: deployment.workload
+    prefix: deployment.workload
     type: span
     brief: >
       This document defines attributes for the deployment of Cloud Native workloads.
@@ -76,6 +79,7 @@ groups:
           The status of the workload deployment.
 
   - id: deployment.task
+    prefix: deployment.task
     type: span
     brief: >
       This document defines attributes for accompanying tasks that support Cloud Native deployments.
