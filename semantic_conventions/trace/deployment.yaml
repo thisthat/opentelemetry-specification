@@ -1,10 +1,23 @@
 groups:
-  - id: deployment-status
-    prefix: deployment
+  - id: deployment.application
+    prefix: deployment.application
     type: event
     brief: >
-      This document defines attributes for the resulting status of an operation used for deploying applications on Kubernetes.
+        This document defines attributes for Cloud Native Deployments of Applications.
+        These attributes can be attached to spans when performing operations for deploying applications on Kubernetes,
+        regardless of the deployment tool being used.
     attributes:
+      - id: name
+        type: string
+        requirement_level: required
+        brief: >
+          The name of the application under deployment.
+        examples: [ 'podtato-head' ]
+      - id: version
+        type: string
+        brief: >
+          The version of the application under deployment.
+        examples: [ '0.1.0' ]
       - id: status
         type:
           allow_custom_values: true
@@ -25,34 +38,11 @@ groups:
               value: 'Unknown'
               brief: 'The deployment is unsuccessful and the reason is unknown'
         brief: >
-          The status of the deployment.
-
-  - id: deployment.application
-    prefix: deployment.application
-    type: span
-    brief: >
-        This document defines attributes for Cloud Native Deployments of Applications.
-        These attributes can be attached to spans when performing operations for deploying applications on Kubernetes,
-        regardless of the deployment tool being used.
-    attributes:
-      - id: name
-        type: string
-        requirement_level: required
-        brief: >
-          The name of the application under deployment.
-        examples: [ 'podtato-head' ]
-      - id: version
-        type: string
-        brief: >
-          The version of the application under deployment.
-        examples: [ '0.1.0' ]
-      - ref: deployment.status
-        brief: >
           The status of the application deployment.
 
   - id: deployment.workload
     prefix: deployment.workload
-    type: span
+    type: event
     brief: >
       This document defines attributes for the deployment of Cloud Native workloads.
       These attributes can be attached to spans when performing operations for deploying workloads on Kubernetes,
@@ -74,13 +64,31 @@ groups:
         brief: >
           The version of the workload under deployment.
         examples: [ 'v0.1.0' ]
-      - ref: deployment.status
+      - id: status
+        type:
+          allow_custom_values: true
+          members:
+            - id: 'pending'
+              value: 'Pending'
+              brief: 'The deployment has been accepted and is being setting up'
+            - id: 'progressing'
+              value: 'Progressing'
+              brief: 'The deployment is taking place'
+            - id: 'succeeded'
+              value: 'Succeeded'
+              brief: 'The deployment was completed correctly'
+            - id: 'failed'
+              value: 'Failed'
+              brief: 'The deployment was **not** completed correctly'
+            - id: 'unknown'
+              value: 'Unknown'
+              brief: 'The deployment is unsuccessful and the reason is unknown'
         brief: >
           The status of the workload deployment.
 
   - id: deployment.task
     prefix: deployment.task
-    type: span
+    type: event
     brief: >
       This document defines attributes for accompanying tasks that support Cloud Native deployments.
     attributes:
@@ -90,6 +98,24 @@ groups:
         brief: >
           The name that identifies the task executed.
         examples: [ 'database-migration', 'report-metric', 'provision-infrastructure' ]
-      - ref: deployment.status
+      - id: status
+        type:
+          allow_custom_values: true
+          members:
+            - id: 'pending'
+              value: 'Pending'
+              brief: 'The deployment has been accepted and is being setting up'
+            - id: 'progressing'
+              value: 'Progressing'
+              brief: 'The deployment is taking place'
+            - id: 'succeeded'
+              value: 'Succeeded'
+              brief: 'The deployment was completed correctly'
+            - id: 'failed'
+              value: 'Failed'
+              brief: 'The deployment was **not** completed correctly'
+            - id: 'unknown'
+              value: 'Unknown'
+              brief: 'The deployment is unsuccessful and the reason is unknown'
         brief: >
           The status of the task execution.
