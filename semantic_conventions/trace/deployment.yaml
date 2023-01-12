@@ -48,6 +48,7 @@ groups:
       These attributes can be attached to spans when performing operations for deploying workloads on Kubernetes,
       regardless of the deployment tool being used.
     attributes:
+      - ref: deployment.application.name
       - id: name
         type: string
         requirement_level: required
@@ -92,6 +93,9 @@ groups:
     brief: >
       This document defines attributes for accompanying tasks that support Cloud Native deployments.
     attributes:
+      - ref: deployment.application.name
+      - ref: deployment.workload.name
+        requirement_level: recommended
       - id: name
         type: string
         requirement_level: required

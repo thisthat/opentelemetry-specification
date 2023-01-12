@@ -1,4 +1,4 @@
-# Semantic conventions for Deployment
+# Semantic conventions for Application Deployment
 
 **Status**: [Experimental](../../document-status.md)
 
@@ -69,6 +69,7 @@ The event name MUST be `deployment.workload`.
 | `deployment.workload.namespace` | string | The namespace in which the workload will be deployed. | `podtatohead` | Recommended |
 | `deployment.workload.version` | string | The version of the workload under deployment. | `v0.1.0` | Recommended |
 | `deployment.workload.status` | string | The status of the workload deployment. | `Pending` | Recommended |
+| `deployment.application.name` | string | The name of the application under deployment. | `podtato-head` | Required |
 
 `deployment.workload.status` has the following list of well-known values. If one of them applies, then the respective value MUST be used, otherwise a custom value MAY be used.
 
@@ -93,6 +94,8 @@ The event name MUST be `deployment.task`.
 |---|---|---|---|---|
 | `deployment.task.name` | string | The name that identifies the task executed. | `database-migration`; `report-metric`; `provision-infrastructure` | Required |
 | `deployment.task.status` | string | The status of the task execution. | `Pending` | Recommended |
+| `deployment.application.name` | string | The name of the application under deployment. | `podtato-head` | Required |
+| `deployment.workload.name` | string | The name of the single workload under deployment. | `podtato-head-hat`; `podtato-head-left-leg` | Recommended |
 
 `deployment.task.status` has the following list of well-known values. If one of them applies, then the respective value MUST be used, otherwise a custom value MAY be used.
 
