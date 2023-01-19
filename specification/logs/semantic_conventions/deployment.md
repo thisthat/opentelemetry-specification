@@ -76,7 +76,7 @@ The event name MUST be `deployment.task`.
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
 | [`deployment.application.name`](../../trace/semantic_conventions/deployment.md) | string | The name of the application under deployment. | `podtato-head` | Required |
-| [`deployment.task.name`](../../trace/semantic_conventions/deployment.md) | string | The name that identifies the task executed. | `database-migration`; `report-metric`; `provision-infrastructure` | Required |
+| [`deployment.task.name`](../../trace/semantic_conventions/deployment.md) | string | The name that identifies the executed task. | `database-migration`; `report-metric`; `provision-infrastructure` | Required |
 | [`deployment.task.status`](../../trace/semantic_conventions/deployment.md) | string | The status of the task execution. | `Pending` | Recommended |
 | [`deployment.workload.name`](../../trace/semantic_conventions/deployment.md) | string | The name of the single workload under deployment. | `podtato-head-hat`; `podtato-head-left-leg` | Recommended |
 <!-- endsemconv -->

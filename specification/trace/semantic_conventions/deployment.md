@@ -47,11 +47,11 @@ The event name MUST be `deployment.application`.
 
 | Value  | Description |
 |---|---|
-| `Pending` | The deployment has been accepted and is being setting up |
-| `Progressing` | The deployment is taking place |
+| `Pending` | The deployment has been accepted and is being set up |
+| `Progressing` | The deployment is currently taking place |
 | `Succeeded` | The deployment was completed correctly |
 | `Failed` | The deployment was **not** completed correctly |
-| `Unknown` | The deployment is unsuccessful and the reason is unknown |
+| `Unknown` | The deployment was unsuccessful and the reason is unknown |
 <!-- endsemconv -->
 
 ### Workload 
@@ -75,11 +75,11 @@ The event name MUST be `deployment.workload`.
 
 | Value  | Description |
 |---|---|
-| `Pending` | The deployment has been accepted and is being setting up |
-| `Progressing` | The deployment is taking place |
+| `Pending` | The deployment has been accepted and is being set up |
+| `Progressing` | The deployment is currently taking place |
 | `Succeeded` | The deployment was completed correctly |
 | `Failed` | The deployment was **not** completed correctly |
-| `Unknown` | The deployment is unsuccessful and the reason is unknown |
+| `Unknown` | The deployment wass unsuccessful and the reason is unknown |
 <!-- endsemconv -->
 
 ### Task
@@ -92,7 +92,7 @@ The event name MUST be `deployment.task`.
 
 | Attribute  | Type | Description  | Examples  | Requirement Level |
 |---|---|---|---|---|
-| `deployment.task.name` | string | The name that identifies the task executed. | `database-migration`; `report-metric`; `provision-infrastructure` | Required |
+| `deployment.task.name` | string | The name that identifies the executed task. | `database-migration`; `report-metric`; `provision-infrastructure` | Required |
 | `deployment.task.status` | string | The status of the task execution. | `Pending` | Recommended |
 | `deployment.application.name` | string | The name of the application under deployment. | `podtato-head` | Required |
 | `deployment.workload.name` | string | The name of the single workload under deployment. | `podtato-head-hat`; `podtato-head-left-leg` | Recommended |
@@ -101,9 +101,9 @@ The event name MUST be `deployment.task`.
 
 | Value  | Description |
 |---|---|
-| `Pending` | The deployment has been accepted and is being setting up |
-| `Progressing` | The deployment is taking place |
+| `Pending` | The deployment has been accepted and is being set up |
+| `Progressing` | The deployment is currently taking place |
 | `Succeeded` | The deployment was completed correctly |
 | `Failed` | The deployment was **not** completed correctly |
-| `Unknown` | The deployment is unsuccessful and the reason is unknown |
+| `Unknown` | The deployment was unsuccessful and the reason is unknown |
 <!-- endsemconv -->

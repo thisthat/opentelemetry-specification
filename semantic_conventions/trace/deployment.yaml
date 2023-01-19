@@ -3,7 +3,7 @@ groups:
     prefix: deployment.application
     type: event
     brief: >
-        This document defines attributes for Cloud Native Deployments of Applications.
+        This document defines attributes for Cloud Native deployments of applications.
         These attributes can be attached to spans when performing operations for deploying applications on Kubernetes,
         regardless of the deployment tool being used.
     attributes:
@@ -24,10 +24,10 @@ groups:
           members:
             - id: 'pending'
               value: 'Pending'
-              brief: 'The deployment has been accepted and is being setting up'
+              brief: 'The deployment has been accepted and is being set up'
             - id: 'progressing'
               value: 'Progressing'
-              brief: 'The deployment is taking place'
+              brief: 'The deployment is currently taking place'
             - id: 'succeeded'
               value: 'Succeeded'
               brief: 'The deployment was completed correctly'
@@ -36,7 +36,7 @@ groups:
               brief: 'The deployment was **not** completed correctly'
             - id: 'unknown'
               value: 'Unknown'
-              brief: 'The deployment is unsuccessful and the reason is unknown'
+              brief: 'The deployment was unsuccessful and the reason is unknown'
         brief: >
           The status of the application deployment.
 
@@ -71,10 +71,10 @@ groups:
           members:
             - id: 'pending'
               value: 'Pending'
-              brief: 'The deployment has been accepted and is being setting up'
+              brief: 'The deployment has been accepted and is being set up'
             - id: 'progressing'
               value: 'Progressing'
-              brief: 'The deployment is taking place'
+              brief: 'The deployment is currently taking place'
             - id: 'succeeded'
               value: 'Succeeded'
               brief: 'The deployment was completed correctly'
@@ -83,7 +83,7 @@ groups:
               brief: 'The deployment was **not** completed correctly'
             - id: 'unknown'
               value: 'Unknown'
-              brief: 'The deployment is unsuccessful and the reason is unknown'
+              brief: 'The deployment wass unsuccessful and the reason is unknown'
         brief: >
           The status of the workload deployment.
 
@@ -100,7 +100,7 @@ groups:
         type: string
         requirement_level: required
         brief: >
-          The name that identifies the task executed.
+          The name that identifies the executed task.
         examples: [ 'database-migration', 'report-metric', 'provision-infrastructure' ]
       - id: status
         type:
@@ -108,10 +108,10 @@ groups:
           members:
             - id: 'pending'
               value: 'Pending'
-              brief: 'The deployment has been accepted and is being setting up'
+              brief: 'The deployment has been accepted and is being set up'
             - id: 'progressing'
               value: 'Progressing'
-              brief: 'The deployment is taking place'
+              brief: 'The deployment is currently taking place'
             - id: 'succeeded'
               value: 'Succeeded'
               brief: 'The deployment was completed correctly'
@@ -120,6 +120,6 @@ groups:
               brief: 'The deployment was **not** completed correctly'
             - id: 'unknown'
               value: 'Unknown'
-              brief: 'The deployment is unsuccessful and the reason is unknown'
+              brief: 'The deployment was unsuccessful and the reason is unknown'
         brief: >
           The status of the task execution.
